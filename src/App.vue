@@ -8,7 +8,6 @@
 import Header from './views/Header.vue'
 import Body from './views/Body.vue'
 import Fotter from './views/Fotter.vue'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <style>
