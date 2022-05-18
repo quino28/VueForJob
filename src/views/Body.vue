@@ -1,6 +1,5 @@
 <template>
   <div style="width: 100%;">
-    <h1>Body</h1>
     <b-button variant="outline-success" @click="getPicture" style="display: block; margin: 10px auto;">Get Picture</b-button>
     <img alt='dog' :src="img" style="max-width: 100%; max-height: 300px;">
   </div>

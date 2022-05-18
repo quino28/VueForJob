@@ -1,11 +1,10 @@
 <template>
   <div class="header">
     <ul>
-      <li>Top</li>
+      <li>News</li>
+      <li>Profile</li>
+      <li>Fun Club</li>
       <li>Dog API</li>
-      <li>Something</li>
-      <li>Something</li>
-      <li>Something</li>
     </ul>
   </div>
 </template>

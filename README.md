@@ -1,8 +1,9 @@
 # What is this?
-Create a prototype in Vue.js to prove my ability.
+A website that introduces them who is my friend.
+I'm going to make them happy.
 
 ## What using?
-- Vue.js@3.2.33
+- Vue3
 
 ## Special Thanks :sparkles:
 - [Dog API](https://dog.ceo/dog-api/)
