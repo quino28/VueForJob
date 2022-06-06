@@ -1,7 +1,9 @@
 <template>
   <div class="footer">
     <p>made by quino</p>
-    <p>email: quinolactacin@gmail.com</p>
+    <p>
+      email: <a href="mailto:quinolactacin@gmail.com">quinolactacin@gmail.com</a>
+    </p>
   </div>
 </template>
 
@@ -11,5 +13,8 @@
   color: #fef4f4;
   padding: 20px;
   font-size: 14px;
+  a {
+    color: inherit;
+  }
 }
 </style>
