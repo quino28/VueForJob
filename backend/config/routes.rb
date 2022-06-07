@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope module: 'api' do
-    resources :index
+    namespace :admin do
+    resource :members
   end
 end
