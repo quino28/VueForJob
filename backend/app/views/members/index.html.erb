@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <div class="col-5 ml-3">
   <table class="table">
     <thead>
@@ -14,7 +16,16 @@
         <td>quino</td>
         <td>quino@email.com</td>
         <td>
-          <button>show</button>
+          <div class="btn-group">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Menu
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Detail</a></li>
+              <li><a class="dropdown-item" href="#">Edit</a></li>
+              <li><a class="dropdown-item" href="#">Delete</a></li>
+            </ul>
+          </div>
         </td>
       </tr>
     </tbody>
