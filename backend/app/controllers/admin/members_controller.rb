@@ -3,6 +3,10 @@ class Admin::MembersController < AdminController
     render 'members/index'
   end
 
+  def new
+    render 'members/new'
+  end
+
   def show
     render 'members/show'
   end
