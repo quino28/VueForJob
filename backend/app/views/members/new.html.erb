@@ -1,22 +1,22 @@
 <h1>New</h1>
 <div class="container">
-  <form>
+  <%= form_with url: '/admin/members', :html => {:class => "form-horizontal center"} do |f| %>
     <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
-      <input type="email" class="form-control" id="name">
+      <%= f.label :name, "Name", class: "form-label" %>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
     <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+      <%= f.label :email, "Email", class: "form-label" %>
+      <%= f.email_field :email, class: "form-control" %>
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password">
+      <%= f.label :password, "Password", class: "form-label" %>
+      <%= f.password_field :password, class: "form-control" %>
     </div>
     <div class="mb-3">
-      <label for="password-confirmation" class="form-label">Password confirmation</label>
-      <input type="password" class="form-control" id="password-confirmation">
+      <%= f.label :password_confimation, "Password confirmation", class: "form-label" %>
+      <%= f.password_field :password_confimation, class: "form-control" %>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
 </div>
