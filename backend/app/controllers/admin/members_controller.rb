@@ -8,6 +8,12 @@ class Admin::MembersController < AdminController
   end
 
   def create
+    m = Members.new
+    m.name     = params[:name]
+    m.email    = params[:email]
+    m.password = params[:password]
+    m.save
+
     render 'members/index'
   end
 
