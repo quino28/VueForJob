@@ -12,7 +12,7 @@ class Admin::MembersController < AdminController
     m.name     = params[:name]
     m.email    = params[:email]
     m.password = params[:password]
-    m.save
+    m.save!
 
     render 'members/index'
   end
