@@ -1,5 +1,12 @@
 <h1>New</h1>
 <div class="container">
+  <% if @member.errors.any? %>
+    <% @member.errors.each do |error| %>
+      <div class="alert alert-danger" role="alert">
+      <%= error.full_message %>
+      </div>
+    <% end %>
+  <% end %>
   <%= form_with url: '/admin/members', :html => {:class => "form-horizontal center"} do |f| %>
     <div class="mb-3">
       <%= f.label :name, "Name", class: "form-label" %>

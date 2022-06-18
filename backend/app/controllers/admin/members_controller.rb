@@ -4,17 +4,21 @@ class Admin::MembersController < AdminController
   end
 
   def new
+    @member = Members.new
     render 'members/new'
   end
 
   def create
-    m = Members.new
-    m.name     = params[:name]
-    m.email    = params[:email]
-    m.password = params[:password]
-    m.save!
+    @member = Members.new
+    @member.name     = params[:name]
+    @member.email    = params[:email]
+    @member.password = params[:password]
 
-    render 'members/index'
+    if @member.save
+      render 'members/index'
+    else
+      render 'members/new'
+    end
   end
 
   def show
