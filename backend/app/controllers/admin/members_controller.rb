@@ -4,7 +4,6 @@ class Admin::MembersController < AdminController
   end
 
   def new
-    @member = Members.new
     render 'members/new'
   end
 

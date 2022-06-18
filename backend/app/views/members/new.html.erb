@@ -1,6 +1,6 @@
 <h1>New</h1>
 <div class="container">
-  <% if @member.errors.any? %>
+  <% if @member && @member.errors.any? %>
     <% @member.errors.each do |error| %>
       <div class="alert alert-danger" role="alert">
       <%= error.full_message %>
