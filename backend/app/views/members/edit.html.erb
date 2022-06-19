@@ -1,0 +1,29 @@
+<h1>Edit</h1>
+<div class="container">
+  <% if @member && @member.errors.any? %>
+    <% @member.errors.each do |error| %>
+      <div class="alert alert-danger" role="alert">
+      <%= error.full_message %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= form_with url: '/admin/members', :html => {:class => "form-horizontal center"} do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, "Name", class: "form-label" %>
+      <%= f.text_field :name, class: "form-control", :required => true %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :email, "Email", class: "form-label" %>
+      <%= f.email_field :email, class: "form-control", :required => true %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :password, "Password", class: "form-label" %>
+      <%= f.password_field :password, class: "form-control", :required => true %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :password_confimation, "Password confirmation", class: "form-label" %>
+      <%= f.password_field :password_confimation, class: "form-control", :required => true %>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>

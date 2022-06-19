@@ -23,4 +23,8 @@ class Admin::MembersController < AdminController
   def show
     render 'members/show'
   end
+
+  def edit
+    render 'members/edit'
+  end
 end
