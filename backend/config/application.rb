@@ -11,6 +11,7 @@ module Riva
     config.api_only = true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.middleware.insert_after Rack::Runtime, Rack::MethodOverride
 
     # Configuration for the application, engines, and railties goes here.
     #

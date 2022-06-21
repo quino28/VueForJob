@@ -15,7 +15,7 @@ class Admin::MembersController < AdminController
     @member.password = params[:password]
 
     if @member.save
-      render 'members/index'
+      redirect_to action: 'index'
     else
       render 'members/new'
     end
@@ -26,6 +26,24 @@ class Admin::MembersController < AdminController
   end
 
   def edit
+    @member = Members.find(params[:id])
     render 'members/edit'
+  end
+
+  def update
+    logger.info(params[:members][:name])
+    logger.info(params[:email])
+    @member = Members.find(params[:id])
+    @member.name  = params[:members][:name]
+    @member.email = params[:members][:email]
+    if params[:password]
+      @member.password = params[:members][:password]
+    end
+
+    if @member.save
+      redirect_to action: 'index'
+    else
+      render 'members/edit'
+    end
   end
 end

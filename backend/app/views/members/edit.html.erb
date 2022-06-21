@@ -7,7 +7,7 @@
       </div>
     <% end %>
   <% end %>
-  <%= form_with url: '/admin/members', :html => {:class => "form-horizontal center"} do |f| %>
+  <%= form_with model: @member, url: "/admin/members/#{@member.id}", :html => {:class => "form-horizontal center"} do |f| %>
     <div class="mb-3">
       <%= f.label :name, "Name", class: "form-label" %>
       <%= f.text_field :name, class: "form-control", :required => true %>
@@ -18,11 +18,11 @@
     </div>
     <div class="mb-3">
       <%= f.label :password, "Password", class: "form-label" %>
-      <%= f.password_field :password, class: "form-control", :required => true %>
+      <%= f.password_field :password, class: "form-control" %>
     </div>
     <div class="mb-3">
       <%= f.label :password_confimation, "Password confirmation", class: "form-label" %>
-      <%= f.password_field :password_confimation, class: "form-control", :required => true %>
+      <%= f.password_field :password_confimation, class: "form-control" %>
     </div>
     <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
