@@ -1,5 +1,6 @@
 class Admin::MembersController < AdminController
   def index
+    @members = Members.all
     render 'members/index'
   end
 

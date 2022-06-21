@@ -17,23 +17,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>quino</td>
-          <td>quino@email.com</td>
-          <td>
-            <div class="btn-group">
-              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Menu
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Detail</a></li>
-                <li><%= link_to('/admin/members/1/edit', class: 'dropdown-item') do %>Edit<% end %></li>
-                <li><a class="dropdown-item" href="#">Delete</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
+        <% @members.each do |member| %>
+          <tr>
+            <td><%= member.id %></td>
+            <td><%= member.name %></td>
+            <td><%= member.email %></td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Menu
+                </button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to("/admin/members/#{member.id}/show", class: 'dropdown-item') do %>Detail<% end %></li>
+                  <li><%= link_to("/admin/members/#{member.id}/edit", class: 'dropdown-item') do %>Edit<% end %></li>
+                  <li><%= link_to("/admin/members/#{member.id}/delete", class: 'dropdown-item') do %>Delete<% end %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
