@@ -47,4 +47,14 @@ class Admin::MembersController < AdminController
       render 'members/edit'
     end
   end
+
+  def destroy
+    @member = Members.find(params[:id])
+    if @member
+      @member.destroy
+      redirect_to action: 'index'
+    else
+      render 'members/show'
+    end
+  end
 end
