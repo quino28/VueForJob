@@ -1,10 +1,39 @@
-<h1>show</h1>
-<p>
-  <strong>Name:</strong>
-</p>
-<p>
-  <strong>Address:</strong>
-</p>
-<p>
-  <strong>Phone:</strong>
-</p>
+<h1>Detail</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="p-3">
+        <strong>Id:</strong>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="p-3">
+        <%= @member.id %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="p-3">
+        <strong>Name:</strong>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="p-3">
+        <%= @member.name %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="p-3">
+        <strong>Email:</strong>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="p-3">
+        <%= @member.email %>
+      </div>
+    </div>
+  </div>
+</div>

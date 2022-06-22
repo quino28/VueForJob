@@ -22,6 +22,7 @@ class Admin::MembersController < AdminController
   end
 
   def show
+    @member = Members.find(params[:id])
     render 'members/show'
   end
 
