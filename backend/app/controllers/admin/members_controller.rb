@@ -32,8 +32,6 @@ class Admin::MembersController < AdminController
   end
 
   def update
-    logger.info(params[:members][:name])
-    logger.info(params[:email])
     @member = Members.find(params[:id])
     @member.name  = params[:members][:name]
     @member.email = params[:members][:email]
@@ -50,11 +48,14 @@ class Admin::MembersController < AdminController
 
   def destroy
     @member = Members.find(params[:id])
+
     if @member
       @member.destroy
-      redirect_to action: 'index'
+      flash[:success] = 'successed'
     else
-      render 'members/show'
+      flash[:danger] = 'failed'
     end
+
+    redirect_to action: 'index'
   end
 end
