@@ -1,4 +1,6 @@
 class Admin::MembersController < AdminController
+  # before_action :logged_in_member
+
   def index
     @members = Members.all
     render 'members/index'
@@ -15,6 +17,7 @@ class Admin::MembersController < AdminController
     @member.password = params[:password]
 
     if @member.save
+      flash[:success] = 'successed'
       redirect_to action: 'index'
     else
       render 'members/new'
@@ -22,24 +25,35 @@ class Admin::MembersController < AdminController
   end
 
   def show
-    @member = Members.find(params[:id])
-    render 'members/show'
+    @member = Members.find_by(id: params[:id])
+    if @member
+      render 'members/show'
+    else
+      flash[:danger] = 'failed'
+      redirect_to action: 'index'
+    end
   end
 
   def edit
-    @member = Members.find(params[:id])
-    render 'members/edit'
+    @member = Members.find_by(id: params[:id])
+    if @member
+      render 'members/edit'
+    else
+      flash[:danger] = 'failed'
+      redirect_to action: 'index'
+    end
   end
 
   def update
     @member = Members.find(params[:id])
     @member.name  = params[:members][:name]
     @member.email = params[:members][:email]
-    if params[:password]
-      @member.password = params[:members][:password]
-    end
+    @member.password = params[:members][:password]
 
+    logger.info(params[:members][:password])
+    logger.info(params[:members][:password_confirmation])
     if @member.save
+      flash[:success] = 'successed'
       redirect_to action: 'index'
     else
       render 'members/edit'
@@ -47,7 +61,7 @@ class Admin::MembersController < AdminController
   end
 
   def destroy
-    @member = Members.find(params[:id])
+    @member = Members.find_by(id: params[:id])
 
     if @member
       @member.destroy

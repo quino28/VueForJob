@@ -5,10 +5,6 @@ class Admin::LoginController < AdminController
 
   def login
     member = Members.find_by(email: params[:email].downcase)
-    logger.info(member.inspect)
-    logger.info(params[:password])
-    member.password = 'admin'
-    logger.info(member.authenticate(params[:password]))
     if member && member.authenticate(params[:password])
       # log_in member
       redirect_to controller: :members, action: :index

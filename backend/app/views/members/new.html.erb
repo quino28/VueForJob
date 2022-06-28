@@ -1,5 +1,8 @@
 <h1>New</h1>
 <div class="container">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-<%= type %>"><%= msg %></div>
+  <% end %>
   <% if @member && @member.errors.any? %>
     <% @member.errors.each do |error| %>
       <div class="alert alert-danger" role="alert">
@@ -21,8 +24,8 @@
       <%= f.password_field :password, class: "form-control", :required => true %>
     </div>
     <div class="mb-3">
-      <%= f.label :password_confimation, "Password confirmation", class: "form-label" %>
-      <%= f.password_field :password_confimation, class: "form-control", :required => true %>
+      <%= f.label :password_confirmation, "Password confirmation", class: "form-label" %>
+      <%= f.password_field :password_confirmation, class: "form-control", :required => true %>
     </div>
     <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>

@@ -2,6 +2,13 @@
   <% flash.each do |type, msg| %>
     <div class="alert alert-<%= type %>"><%= msg %></div>
   <% end %>
+  <% if @member && @member.errors.any? %>
+    <% @member.errors.each do |error| %>
+      <div class="alert alert-danger" role="alert">
+      <%= error.full_message %>
+      </div>
+    <% end %>
+  <% end %>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <%= link_to('/admin/members/new') do %>
       <button class="btn btn-secondary btn-sm" type="button" aria-expanded="false" style="margin: 0.5rem 0;">
