@@ -50,8 +50,6 @@ class Admin::MembersController < AdminController
     @member.email = params[:members][:email]
     @member.password = params[:members][:password]
 
-    logger.info(params[:members][:password])
-    logger.info(params[:members][:password_confirmation])
     if @member.save
       flash[:success] = 'successed'
       redirect_to action: 'index'
