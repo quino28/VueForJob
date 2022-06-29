@@ -9,7 +9,7 @@ class Admin::LoginController < AdminController
       # log_in member
       redirect_to controller: :members, action: :index
     else
-      render 'login/login'
+      render 'layouts/index'
     end
   end
 
