@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+a {
+  color: inherit;
+  text-decoration: none;
+}
 .header {
   background-color: #38b48b;
   color: #fef4f4;
