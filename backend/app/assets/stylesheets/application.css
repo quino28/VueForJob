@@ -21,6 +21,7 @@ a {
   background-color: #38b48b;
   color: #fef4f4;
   padding: 20px;
+  display: flex;
 }
 .header ul {
   margin: 0;
@@ -29,4 +30,9 @@ a {
   display: inline;
   margin: 10px;
   cursor: pointer;
+  vertical-align: middle;
+}
+
+.header form {
+  margin-left: auto;
 }

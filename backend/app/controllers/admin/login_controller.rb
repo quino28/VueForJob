@@ -6,7 +6,7 @@ class Admin::LoginController < AdminController
   def login
     member = Members.find_by(email: params[:email].downcase)
     if member && member.authenticate(params[:password])
-      # log_in member
+      add_session member
       redirect_to controller: :members, action: :index
     else
       render 'layouts/index'
@@ -14,7 +14,7 @@ class Admin::LoginController < AdminController
   end
 
   def logout
-    log_out if logged_in?
-    redirect_to root_url
+    remove_session if logged_in?
+    render 'login/login'
   end
 end
