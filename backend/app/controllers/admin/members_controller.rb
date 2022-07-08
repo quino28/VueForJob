@@ -1,5 +1,5 @@
 class Admin::MembersController < AdminController
-  # before_action :logged_in_member
+  before_action :logged_in_member
 
   def index
     @members = Members.all

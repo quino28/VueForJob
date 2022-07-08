@@ -11,7 +11,7 @@ class AdminController < ActionController::Base
   private
   def logged_in_member
     unless logged_in?
-      redirect_to login_url
+      render 'login/login'
     end
   end
 end
