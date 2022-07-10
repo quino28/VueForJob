@@ -7,14 +7,14 @@ class Admin::LoginController < AdminController
     member = Members.find_by(email: params[:email].downcase)
     if member && member.authenticate(params[:password])
       add_session member
-      redirect_to controller: :members, action: :index
+      redirect_to admin_path
     else
-      render 'layouts/index'
+      redirect_to action: 'index'
     end
   end
 
   def logout
     remove_session if logged_in?
-    render 'login/login'
+    redirect_to action: 'index'
   end
 end
