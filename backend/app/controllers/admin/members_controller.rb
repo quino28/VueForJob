@@ -2,7 +2,7 @@ class Admin::MembersController < AdminController
   before_action :logged_in_member
 
   def index
-    @members = Members.all
+    @members = Members.all.page(params[:page]).reverse_order
     render 'members/index'
   end
 
