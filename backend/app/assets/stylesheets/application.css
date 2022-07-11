@@ -45,3 +45,7 @@ a {
   border: none;
   color: #696969;
 }
+
+.pagination > li.disabled .page-link {
+  color: #ced4da;
+}
