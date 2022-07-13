@@ -1,4 +1,4 @@
-class Members < ApplicationRecord
+class AdminMembers < ApplicationRecord
   has_secure_password
 
   validates :name, :email, presence: true

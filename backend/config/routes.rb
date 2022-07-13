@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     get '/login', to: 'login#index'
     post '/login', to: 'login#login'
     delete '/logout', to: 'login#logout'
-    resources :members, only: [:index, :new, :create, :show, :edit, :update, :delete, :destroy]
+    resources :admin_members, only: [:index, :new, :create, :show, :edit, :update, :delete, :destroy]
   end
 end

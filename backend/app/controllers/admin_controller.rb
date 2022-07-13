@@ -9,7 +9,7 @@ class AdminController < ActionController::Base
   end
 
   private
-  def logged_in_member
+  def logged_in_admin_member
     unless logged_in?
       render 'login/login'
     end

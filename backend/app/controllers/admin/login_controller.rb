@@ -4,9 +4,9 @@ class Admin::LoginController < AdminController
   end
 
   def login
-    member = Members.find_by(email: params[:email].downcase)
-    if member && member.authenticate(params[:password])
-      add_session member
+    admin_member = AdminMembers.find_by(email: params[:email].downcase)
+    if admin_member && admin_member.authenticate(params[:password])
+      add_session admin_member
       redirect_to admin_path
     else
       redirect_to action: 'index'
