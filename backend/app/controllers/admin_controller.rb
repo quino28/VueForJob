@@ -4,8 +4,13 @@ class AdminController < ActionController::Base
   layout 'application'
   add_flash_types :success, :info, :warning, :danger
 
-  def index
+  def initial_page
     render 'layouts/index'
+  end
+
+  def index
+    @models = controller_name.camelize.constantize.all.page(params[:page]).reverse_order
+    render "#{controller_name}/index"
   end
 
   private

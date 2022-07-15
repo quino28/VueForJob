@@ -1,11 +1,6 @@
 class Admin::AdminMembersController < AdminController
   before_action :logged_in_admin_member
 
-  def index
-    @admin_members = AdminMembers.all.page(params[:page]).reverse_order
-    render 'admin_members/index'
-  end
-
   def new
     render 'admin_members/new'
   end

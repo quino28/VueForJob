@@ -6,15 +6,15 @@
   <% flash.each do |type, msg| %>
     <div class="alert alert-<%= type %>"><%= msg %></div>
   <% end %>
-  <% if @admin_member && @admin_member.errors.any? %>
-    <% @admin_member.errors.each do |error| %>
+  <% if @model && @model.errors.any? %>
+    <% @model.errors.each do |error| %>
       <div class="alert alert-danger" role="alert">
       <%= error.full_message %>
       </div>
     <% end %>
   <% end %>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <%= link_to('/admin/admin_members/new') do %>
+    <%= link_to("/admin/#{controller_name}/new") do %>
       <button class="btn btn-secondary btn-sm" type="button" aria-expanded="false" style="margin: 0.5rem 0;">
         Create
       </button>
@@ -31,19 +31,19 @@
         </tr>
       </thead>
       <tbody>
-        <% @admin_members.each do |admin_member| %>
+        <% @models.each do |model| %>
           <tr>
-            <td><%= admin_member.id %></td>
-            <td><%= admin_member.name %></td>
-            <td><%= admin_member.email %></td>
+            <td><%= model.id %></td>
+            <td><%= model.name %></td>
+            <td><%= model.email %></td>
             <td>
               <div class="btn-group">
                 <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Menu
                 </button>
                 <ul class="dropdown-menu">
-                  <li><%= link_to("/admin/admin_members/#{admin_member.id}", class: 'dropdown-item') do %>Detail<% end %></li>
-                  <li><%= link_to("/admin/admin_members/#{admin_member.id}/edit", class: 'dropdown-item') do %>Edit<% end %></li>
+                  <li><%= link_to("/admin/#{controller_name}/#{model.id}", class: 'dropdown-item') do %>Detail<% end %></li>
+                  <lr><%= link_to("/admin/#{controller_name}/#{model.id}/edit", class: 'dropdown-item') do %>Edit<% end %></li>
                 </ul>
               </div>
             </td>
@@ -52,5 +52,5 @@
       </tbody>
     </table>
   </div>
-  <%= paginate @admin_members %>
+  <%= paginate @models %>
 </div>

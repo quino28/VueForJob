@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get '/', to: 'admin#index'
-  get '/admin', to: 'admin#index'
+  get '/', to: 'admin#initial_page'
+  get '/admin', to: 'admin#initial_page'
   namespace :admin do
     get '/login', to: 'login#index'
     post '/login', to: 'login#login'
