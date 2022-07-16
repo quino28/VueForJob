@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     post '/login', to: 'login#login'
     delete '/logout', to: 'login#logout'
     resources :admin_members, only: [:index, :new, :create, :show, :edit, :update, :delete, :destroy]
+    resources :members, only: [:index, :new, :create, :show, :edit, :update, :delete, :destroy]
   end
 end
