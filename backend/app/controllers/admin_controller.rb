@@ -13,6 +13,10 @@ class AdminController < ActionController::Base
     render "#{controller_name}/index"
   end
 
+  def new
+    render "#{controller_name}/new"
+  end
+
   private
   def logged_in_admin_member
     unless logged_in?

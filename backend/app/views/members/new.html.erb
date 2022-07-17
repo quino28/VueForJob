@@ -24,6 +24,10 @@
       <%= f.email_field :email, class: "form-control", :required => true %>
     </div>
     <div class="mb-3">
+      <%= f.label :barthday, "Barthday", class: "form-label" %>
+      <%= f.date_field :birthday, class: "form-control", :required => true %>
+    </div>
+    <div class="mb-3">
       <%= f.label :password, "Password", class: "form-label" %>
       <%= f.password_field :password, class: "form-control", :required => true %>
     </div>
