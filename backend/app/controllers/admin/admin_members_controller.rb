@@ -15,16 +15,6 @@ class Admin::AdminMembersController < AdminController
     end
   end
 
-  def show
-    @admin_member = AdminMembers.find_by(id: params[:id])
-    if @admin_member
-      render 'admin_members/show'
-    else
-      flash[:danger] = 'failed'
-      redirect_to action: 'index'
-    end
-  end
-
   def edit
     @admin_member = AdminMembers.find_by(id: params[:id])
     if @admin_member
