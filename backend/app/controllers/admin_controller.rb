@@ -27,6 +27,16 @@ class AdminController < ActionController::Base
     end
   end
 
+  def edit
+    @model = controller_name.camelize.constantize.find_by(id: params[:id])
+    if @model
+      render "#{controller_name}/edit"
+    else
+      flash[:danger] = 'failed'
+      redirect_to action: 'index'
+    end
+  end
+
   private
   def logged_in_admin_member
     unless logged_in?

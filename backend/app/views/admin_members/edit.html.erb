@@ -4,14 +4,14 @@
 
 <h1>Edit</h1>
 <div class="container">
-  <% if @admin_member && @admin_member.errors.any? %>
-    <% @admin_member.errors.each do |error| %>
+  <% if @model && @model.errors.any? %>
+    <% @model.errors.each do |error| %>
       <div class="alert alert-danger" role="alert">
       <%= error.full_message %>
       </div>
     <% end %>
   <% end %>
-  <%= form_with model: @admin_member, url: "/admin/admin_members/#{@admin_member.id}", :html => {:class => "form-horizontal center"} do |f| %>
+  <%= form_with model: @model, url: "/admin/#{controller_name}/#{@model.id}", :html => {:class => "form-horizontal center"} do |f| %>
     <div class="mb-3">
       <%= f.label :name, "Name", class: "form-label" %>
       <%= f.text_field :name, class: "form-control", :required => true %>
@@ -31,7 +31,7 @@
     <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
   <div class="d-grid gap-2 p-3">
-    <%= link_to('/admin/admin_members', class: 'btn btn-secondary', role: 'button') do %>
+    <%= link_to("/admin/#{controller_name}", class: 'btn btn-secondary', role: 'button') do %>
       Back
     <% end %>
   </div>
