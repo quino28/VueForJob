@@ -1,20 +1,6 @@
 class Admin::AdminMembersController < AdminController
   before_action :logged_in_admin_member
 
-  def create
-    @admin_member = AdminMembers.new
-    @admin_member.name     = params[:name]
-    @admin_member.email    = params[:email]
-    @admin_member.password = params[:password]
-
-    if @admin_member.save
-      flash[:success] = 'successed'
-      redirect_to action: 'index'
-    else
-      render 'admin_members/new'
-    end
-  end
-
   def update
     @admin_member = AdminMembers.find(params[:id])
     @admin_member.name     = params[:admin_members][:name]
@@ -40,5 +26,10 @@ class Admin::AdminMembersController < AdminController
     end
 
     redirect_to action: 'index'
+  end
+
+  private
+  def new_params
+    params.fetch(:admin_members, {}).permit(:name, :email, :password)
   end
 end
