@@ -30,7 +30,7 @@ class AdminController < ActionController::Base
   def create
     @model = controller_name.camelize.constantize.new(new_params)
 
-    if @model.save
+    if @model && @model.save
       flash[:success] = 'successed'
       redirect_to action: 'index'
     else
@@ -45,6 +45,17 @@ class AdminController < ActionController::Base
     else
       flash[:danger] = 'failed'
       redirect_to action: 'index'
+    end
+  end
+
+  def update
+    @model = controller_name.camelize.constantize.find_by(id: params[:id])
+
+    if @model && @model.update(update_params)
+      flash[:success] = 'successed'
+      redirect_to action: 'index'
+    else
+      render "#{controller_name}/edit"
     end
   end
 
