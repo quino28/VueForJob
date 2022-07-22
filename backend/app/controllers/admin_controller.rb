@@ -59,6 +59,19 @@ class AdminController < ActionController::Base
     end
   end
 
+  def destroy
+    @model = controller_name.camelize.constantize.find_by(id: params[:id])
+
+    if @model
+      @model.destroy
+      flash[:success] = 'successed'
+    else
+      flash[:danger] = 'failed'
+    end
+
+    redirect_to action: 'index'
+  end
+
   private
   def logged_in_admin_member
     unless logged_in?
