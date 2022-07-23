@@ -14,7 +14,7 @@
       </div>
     <% end %>
   <% end %>
-  <%= form_with url: "/admin/#{controller_name}", :html => {:class => "form-horizontal center"} do |f| %>
+  <%= form_with model: @model, url: "/admin/#{controller_name}", :html => {:class => "form-horizontal center"} do |f| %>
     <div class="mb-3">
       <%= f.label :name, "Name", class: "form-label" %>
       <%= f.text_field :name, class: "form-control", :required => true %>
