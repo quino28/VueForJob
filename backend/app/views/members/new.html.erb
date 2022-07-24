@@ -3,41 +3,56 @@
 <% end %>
 
 <h1>New</h1>
-<div class="container">
+<div class='container'>
   <% flash.each do |type, msg| %>
     <div class="alert alert-<%= type %>"><%= msg %></div>
   <% end %>
   <% if @model && @model.errors.any? %>
     <% @model.errors.each do |error| %>
-      <div class="alert alert-danger" role="alert">
+      <div class='alert alert-danger' role='alert'>
       <%= error.full_message %>
       </div>
     <% end %>
   <% end %>
-  <%= form_with url: "/admin/#{controller_name}", :html => {:class => "form-horizontal center"} do |f| %>
-    <div class="mb-3">
-      <%= f.label :name, "Name", class: "form-label" %>
-      <%= f.text_field :name, class: "form-control", :required => true %>
+  <%= form_with model: @model, url: "/admin/#{controller_name}", :html => {:class => 'form-horizontal center'} do |f| %>
+    <div class='mb-3'>
+      <%= f.label :name, 'Name', class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-control', :required => true %>
     </div>
-    <div class="mb-3">
-      <%= f.label :email, "Email", class: "form-label" %>
-      <%= f.email_field :email, class: "form-control", :required => true %>
+    <div class='mb-3'>
+      <%= f.label :email, 'Email', class: 'form-label' %>
+      <%= f.email_field :email, class: 'form-control', :required => true %>
     </div>
-    <div class="mb-3">
-      <%= f.label :barthday, "Barthday", class: "form-label" %>
-      <%= f.date_field :birthday, class: "form-control", :required => true %>
+    <div class='mb-3'>
+      <%= f.label :birthday, 'Barthday', class: 'form-label' %>
+      <%= f.date_field :birthday, class: 'form-control', :required => true %>
     </div>
-    <div class="mb-3">
-      <%= f.label :password, "Password", class: "form-label" %>
-      <%= f.password_field :password, class: "form-control", :required => true %>
+    <div class='mb-3'>
+      <%= f.label :gender, 'Gender', class: 'form-label' %>
+      <div class='form-check'>
+        <%= f.radio_button :gender, :value => 1, class: 'form-check-input' %>
+        <%= f.label :gender, 'Male', :value => '1', class: 'form-check-label' %>
+      </div>
+      <div class='form-check'>
+        <%= f.radio_button :gender, :value => 2, class: 'form-check-input' %>
+        <%= f.label :gender, 'Female', :value => '2' %>
+      </div>
+      <div class='form-check'>
+        <%= f.radio_button :gender, :value => 3, class: 'form-check-input' %>
+        <%= f.label :gender, 'Otherwise', :value => '3' %>
+      </div>
     </div>
-    <div class="mb-3">
-      <%= f.label :password_confirmation, "Password confirmation", class: "form-label" %>
-      <%= f.password_field :password_confirmation, class: "form-control", :required => true %>
+    <div class='mb-3'>
+      <%= f.label :password, 'Password', class: 'form-label' %>
+      <%= f.password_field :password, class: 'form-control', :required => true %>
     </div>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <div class='mb-3'>
+      <%= f.label :password_confirmation, 'Password confirmation', class: 'form-label' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', :required => true %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>
-  <div class="d-grid gap-2 p-3">
+  <div class='d-grid gap-2 p-3'>
     <%= link_to("/admin/#{controller_name}", class: 'btn btn-secondary', role: 'button') do %>
       Back
     <% end %>
