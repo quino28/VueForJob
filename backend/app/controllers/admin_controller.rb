@@ -17,16 +17,6 @@ class AdminController < ActionController::Base
     render "#{controller_name}/new"
   end
 
-  def show
-    @model = controller_name.camelize.constantize.find_by(id: params[:id])
-    if @model
-      render "#{controller_name}/show"
-    else
-      flash[:danger] = 'failed'
-      redirect_to action: 'index'
-    end
-  end
-
   def create
     @model = controller_name.camelize.constantize.new(get_params)
 
@@ -35,6 +25,16 @@ class AdminController < ActionController::Base
       redirect_to action: 'index'
     else
       render "#{controller_name}/new"
+    end
+  end
+
+  def show
+    @model = controller_name.camelize.constantize.find_by(id: params[:id])
+    if @model
+      render "#{controller_name}/show"
+    else
+      flash[:danger] = 'failed'
+      redirect_to action: 'index'
     end
   end
 

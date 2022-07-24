@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_14_140043) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_24_094533) do
   create_table "admin_members", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_140043) do
     t.string "address"
     t.string "email", null: false
     t.date "birthday"
-    t.string "gender", null: false
+    t.integer "gender", null: false
     t.string "password_digest", null: false
     t.integer "payment_id"
     t.datetime "created_at", null: false
