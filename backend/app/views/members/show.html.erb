@@ -1,0 +1,94 @@
+<% content_for :header do %>
+  <%= render 'layouts/header' %>
+<% end %>
+
+<h1>Detail</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="p-3">
+        <strong>Id:</strong>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="p-3">
+        <%= @model.id %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="p-3">
+        <strong>Name:</strong>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="p-3">
+        <%= @model.name %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="p-3">
+        <strong>Email:</strong>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="p-3">
+        <%= @model.email %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="p-3">
+        <strong>Birthday:</strong>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="p-3">
+        <%= @model.birthday %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="p-3">
+        <strong>Gender:</strong>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="p-3">
+        <%= @model.gender %>
+      </div>
+    </div>
+  </div>
+  <div class="d-grid gap-2 p-3">
+    <%= link_to("/admin/#{controller_name}", class: 'btn btn-secondary', role: 'button') do %>
+      Back
+    <% end %>
+    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+      Delete
+    </button>
+  </div>
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete a member</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Do you really want to delete it?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <%= button_to("/admin/#{controller_name}/#{@model.id}", method: :delete, class: 'btn btn-danger') do %>
+            Delete
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
