@@ -14,6 +14,7 @@ class AdminController < ActionController::Base
   end
 
   def new
+    @model = controller_name.camelize.constantize.new
     render "#{controller_name}/new"
   end
 

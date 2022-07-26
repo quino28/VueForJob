@@ -3,7 +3,7 @@ class Admin::MembersController < AdminController
 
   private
   def get_params
-    params.permit(
+    params.require(:members).permit(
       :name,
       :email,
       :birthday,
