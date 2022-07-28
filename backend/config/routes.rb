@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :admin_members, only: [:index, :new, :create, :show, :edit, :update, :delete, :destroy]
     resources :members, only: [:index, :new, :create, :show, :edit, :update, :delete, :destroy]
   end
+  get '/*not_found', to: 'routes#routing_error'
+  post '/*not_found', to: 'routes#routing_error'
 end
