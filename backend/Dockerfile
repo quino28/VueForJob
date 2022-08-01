@@ -4,12 +4,10 @@ RUN apt-get update -qq && \
                        build-essential \
                        libpq-dev \
                        nodejs \
-                       mysql-client
+                       default-mysql-server
 RUN mkdir /backend
 WORKDIR /backend
-ADD Gemfile /backend/Gemfile
-ADD Gemfile.lock /backend/Gemfile.lock
+ADD . /
 RUN bundle install -j4
-ADD . /backend
 
 EXPOSE 5000
