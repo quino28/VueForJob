@@ -5,9 +5,9 @@ RUN apt-get update -qq && \
                        libpq-dev \
                        nodejs \
                        default-mysql-server
-RUN mkdir /backend
+
 WORKDIR /backend
-ADD . /
+ADD ./backend /
 RUN bundle install -j4
 
 EXPOSE 5000
