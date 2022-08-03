@@ -1,12 +1,8 @@
-FROM node:17-alpine3.14
+FROM node:14.17.1
 
 WORKDIR /front
+ADD ./front /
 
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1 \
-    && asdf install yarn latest \
-    && yarn add vue \
-    && yarn add bootstrap bootstrap-vue-3
-    && yarn
+RUN yarn install
 
 EXPOSE 3000
-ENV HOST 0.0.0.0

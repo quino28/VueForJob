@@ -25,7 +25,9 @@ services:
     build:
       context: .
       dockerfile: ./front/Dockerfile
+    command: bash -c "yarn && /bin/bash"
     image: vue
+    tty: true
     volumes:
       - .:/front
     ports:
