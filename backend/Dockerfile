@@ -7,7 +7,6 @@ RUN apt-get update -qq && \
                        default-mysql-server
 
 WORKDIR /backend
-ADD ./backend /
 RUN bundle install -j4
 
 EXPOSE 5000
