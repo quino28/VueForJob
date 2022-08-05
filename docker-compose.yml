@@ -29,7 +29,7 @@ services:
     image: vue
     tty: true
     volumes:
-      - .:/front
+      - ./front:/front
     ports:
       - 3000:3000
     depends_on:
