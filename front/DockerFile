@@ -1,7 +1,7 @@
 FROM node:14.17.1
 
 WORKDIR /front
-ADD ./front /
+COPY ./front /
 
 RUN yarn install
 
