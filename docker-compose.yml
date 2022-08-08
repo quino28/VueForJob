@@ -3,7 +3,7 @@ services:
   db:
     image: mysql
     volumes:
-      - /opt/homebrew/var/mysql
+      - ./mysql-store:/var/lib/mysql
     environment:
       MYSQL_PORT: 3306
       MYSQL_ROOT_PASSWORD: admin
@@ -19,8 +19,8 @@ services:
       - ./backend:/backend
     ports:
       - 4000:4000
-    depends_on:
-      - db
+    links:
+      - db:mysql
   vue:
     build:
       context: .
@@ -32,5 +32,5 @@ services:
       - ./front:/front
     ports:
       - 3000:3000
-    depends_on:
-      - db
+    links:
+      - db:mysql
