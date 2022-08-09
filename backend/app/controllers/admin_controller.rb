@@ -1,5 +1,6 @@
 class AdminController < ActionController::Base
   include SessionsHelper
+  before_action :logged_in_admin_member, only: :initial_page
 
   layout 'application'
   add_flash_types :success, :info, :warning, :danger

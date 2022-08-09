@@ -1,9 +1,6 @@
 FROM ruby:3.1.2
 RUN apt-get update -qq && \
-    apt-get install -y apt-utils \
-                       build-essential \
-                       libpq-dev \
-                       nodejs \
+    apt-get install -y nodejs \
                        default-mysql-server
 
 WORKDIR /backend
