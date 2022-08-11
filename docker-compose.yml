@@ -1,12 +1,12 @@
 version: '3.9'
 services:
-  db:
+  mysql:
     image: mysql
     volumes:
-      - ./mysql-store:/var/lib/mysql
+      - mysql-store:/var/lib/mysql
     environment:
       MYSQL_PORT: 3306
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
     ports:
       - 3306:3306
   rails:
@@ -17,10 +17,12 @@ services:
     image: rails
     volumes:
       - ./backend:/backend
+    env_file:
+      - ./.env.local
     ports:
       - 4000:4000
     links:
-      - db:mysql
+      - mysql:mysql
   vue:
     build:
       context: .
@@ -33,4 +35,7 @@ services:
     ports:
       - 3000:3000
     links:
-      - db:mysql
+      - mysql:mysql
+
+volumes:
+  mysql-store:
