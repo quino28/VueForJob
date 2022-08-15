@@ -15,7 +15,9 @@ EOF
 }
 
 function init() {
-    echo 'test'
+    docker-compose down --volumes --remove-orphans --rmi all
+    docker-compose --env-file .env.local up -d --build
+    docker-compose exec rails rails db:schema:load
 }
 
 if [ $# -eq 0 ];then
