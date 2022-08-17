@@ -20,9 +20,14 @@ function init() {
     docker-compose exec rails rails db:schema:load
 }
 
-if [ $# -eq 0 ];then
+if [ $# -ne 1 ];then
   usage
   exit 1
 fi
 
-$1
+if [ "$(type -t $1)" = "function" ]; then
+    $1
+else
+  usage
+  exit 1
+fi
