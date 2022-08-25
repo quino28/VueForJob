@@ -15,9 +15,9 @@ EOF
 }
 
 function init() {
-    docker-compose down --volumes --remove-orphans --rmi all
-    docker-compose --env-file .env.local up -d --build
-    docker-compose exec rails rails db:schema:load && rails db:seed
+    docker-compose down --volumes --remove-orphans --rmi all && \
+    docker-compose --env-file .env.local up -d --build && \
+    docker-compose exec rails sh -c "rails db:create && rails db:schema:load && rails db:seed"
 }
 
 if [ $# -ne 1 ];then
