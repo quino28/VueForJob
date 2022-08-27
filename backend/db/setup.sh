@@ -20,6 +20,10 @@ function init() {
     docker-compose exec rails sh -c "rails db:create && rails db:schema:load && rails db:seed"
 }
 
+function clear() {
+    docker-compose exec rails sh -c "rails db:reset"
+}
+
 if [ $# -ne 1 ];then
   usage
   exit 1
