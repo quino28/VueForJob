@@ -21,6 +21,7 @@ function init() {
 }
 
 function clear() {
+    docker image prune -f && \
     docker-compose exec rails sh -c "rails db:reset"
 }
 
