@@ -15,13 +15,17 @@
   background-color: #38b48b;
   color: #fef4f4;
   padding: 20px;
+  display: flex;
+  align-items: center;
   ul {
-    display: inline-block;
     li {
       display: inline;
       margin: 10px;
       cursor: pointer;
     }
+  }
+  button {
+    margin-left: auto;
   }
 }
 </style>
