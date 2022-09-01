@@ -1,4 +1,5 @@
 <template>
+  <Login />
   <div style="width: 100%;">
     <b-button variant="outline-success" @click="getPicture" style="display: block; margin: 10px auto;">Get Picture</b-button>
     <img alt='dog' :src="img" style="max-width: 100%; max-height: 300px;">
@@ -7,8 +8,12 @@
 
 <script>
 import axios from 'axios'
+import Login from '../components/Body/Login.vue'
 
 export default {
+  components: {
+    Login,
+  },
   data() {
     return {
       img: '/noimage.png',
