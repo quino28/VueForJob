@@ -1,13 +1,35 @@
 <template>
-  <Header />
-  <Body />
+  <Header
+    @changeComponent="changeComponent"
+  />
+  <Body
+    :currentComponent="this.currentComponent"
+  />
   <Fotter />
 </template>
 
-<script setup>
+<script>
 import Header from './views/Header.vue'
 import Body from './views/Body.vue'
 import Fotter from './views/Fotter.vue'
+
+export default {
+  components: {
+    Header,
+    Body,
+    Fotter,
+  },
+  data() {
+    return {
+      currentComponent: 'home',
+    }
+  },
+  methods: {
+    changeComponent(component) {
+      this.currentComponent = component
+    }
+  }
+}
 </script>
 
 <style>

@@ -1,5 +1,5 @@
 <template>
-  <Login />
+  <component :is="currentComponent" />
   <div style="width: 100%;">
     <b-button variant="outline-success" @click="getPicture" style="display: block; margin: 10px auto;">Get Picture</b-button>
     <img alt='dog' :src="img" style="max-width: 100%; max-height: 300px;">
@@ -14,6 +14,9 @@ export default {
   components: {
     Login,
   },
+  props: [
+    "currentComponent",
+  ],
   data() {
     return {
       img: '/noimage.png',

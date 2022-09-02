@@ -6,9 +6,19 @@
       <li>Fun Club</li>
       <li>Dog API</li>
     </ul>
-    <b-button variant="outline-light">Login</b-button>
+    <b-button variant="outline-light" @click="changeComponent('login')">Login</b-button>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    changeComponent(component) {
+      this.$emit('changeComponent', component)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .header {
