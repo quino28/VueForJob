@@ -4,7 +4,7 @@
       <li>News</li>
       <li>Profile</li>
       <li>Fun Club</li>
-      <li>Dog API</li>
+      <li @click="changeComponent('DogApi')">Dog API</li>
     </ul>
     <b-button variant="outline-light" @click="changeComponent('login')">Login</b-button>
   </div>
