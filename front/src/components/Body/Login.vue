@@ -1,6 +1,8 @@
 <template>
-  <h1>Login page</h1>
-  <div class="container">
+  <div style="padding: 40px 20px 20px">
+    <h1>Are you members?</h1>
+  </div>
+  <div class="container" style="padding: 20px 20px">
     <div class="mb-3 row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
@@ -15,7 +17,7 @@
     </div>
     <div class="mb-3 row">
       <label for="password" class="col-sm-2 col-form-label"></label>
-      <div class="col-sm-10">
+      <div class="col-sm-10" style="text-align: left">
         <button type="submit" class="btn btn-primary">Login</button>
       </div>
     </div>
