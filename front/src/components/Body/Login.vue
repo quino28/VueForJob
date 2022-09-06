@@ -12,13 +12,13 @@
     <div class="mb-3 row">
       <label for="password" class="col-sm-2 col-form-label">Password</label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" id="password" placeholder="password">
+        <input type="password" class="form-control" id="password" placeholder="Password">
       </div>
     </div>
     <div class="mb-3 row">
       <label for="password" class="col-sm-2 col-form-label"></label>
       <div class="col-sm-10" style="text-align: left">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button class="btn btn-primary" @click="login">Login</button>
       </div>
     </div>
   </div>
@@ -34,5 +34,9 @@ export default {
       },
     }
   },
+  methods: {
+    login() {
+    }
+  }
 }
 </script>
