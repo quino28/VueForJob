@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # Admin routes
   get '/', to: 'admin#initial_page'
   get '/admin', to: 'admin#initial_page'
   namespace :admin do
@@ -8,6 +9,13 @@ Rails.application.routes.draw do
     resources :admin_members, only: [:index, :new, :create, :show, :edit, :update, :delete, :destroy]
     resources :members, only: [:index, :new, :create, :show, :edit, :update, :delete, :destroy]
   end
+
+  # Api routes
+  namespace :api do
+    post '/login', to: 'login#login'
+  end
+
+  # Not found pages
   get '/*not_found', to: 'routes#routing_error'
   post '/*not_found', to: 'routes#routing_error'
 end
