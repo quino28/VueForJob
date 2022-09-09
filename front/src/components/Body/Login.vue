@@ -2,6 +2,7 @@
   <div style="padding: 40px 20px 20px">
     <h1>Are you members?</h1>
   </div>
+  {{ text }}
   <div class="container" style="padding: 20px 20px">
     <div class="mb-3 row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
@@ -25,6 +26,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -32,10 +35,19 @@ export default {
         email: '',
         password: '',
       },
+      text: '',
     }
   },
   methods: {
+    /* temporary */
     login() {
+      axios.post('http://localhost:4000/api/login')
+      .then(res => {
+        console.log(res)
+        this.text = res.data
+      }).catch(err => {
+        console.error(err)
+      })
     }
   }
 }
