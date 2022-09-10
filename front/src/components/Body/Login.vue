@@ -43,7 +43,6 @@ export default {
     login() {
       axios.post('http://localhost:4000/api/login')
       .then(res => {
-        console.log(res)
         this.text = res.data
       }).catch(err => {
         console.error(err)
