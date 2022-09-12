@@ -13,7 +13,7 @@ module Riva
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins "http://localhost:3000"
+        origins Rails.configuration.allow_origins
         resource "*",
           headers: :any,
           methods: [:get, :post]
