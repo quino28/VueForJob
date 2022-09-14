@@ -1,5 +1,15 @@
 class Api::LoginController < ApplicationController
   def login
-    render :json => { 'data': 'succeed' }
+    data = {}
+    member = Members.find_by(email: params[:form][:email])
+    if member && member.authenticate(params[:form][:password])
+      data = {
+        member: member
+      }
+    end
+
+    render :json => {
+      'data': data
+    }
   end
 end
