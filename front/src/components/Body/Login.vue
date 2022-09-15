@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   data() {
     return {
@@ -41,7 +39,7 @@ export default {
   methods: {
     /* temporary */
     login() {
-      axios.post('http://localhost:4000/api/login', {
+      this.$axios.post('/api/login', {
         form: this.form,
       })
       .then(res => {
