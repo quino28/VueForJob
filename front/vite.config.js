@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
-import env from 'vite-plugin-env-compatible'
+import EnvironmentPlugin from 'vite-plugin-environment'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  envDir: '../',
   plugins: [
-    env(),
+    EnvironmentPlugin('all', { prefix: 'VUE_APP_' }),
     vue(),
   ],
   server: {
