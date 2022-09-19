@@ -30,8 +30,6 @@ services:
     command: bash -c "yarn dev && /bin/bash"
     image: vue
     tty: true
-    volumes:
-      - ./front:/front
     ports:
       - 3000:3000
     links:

@@ -1,7 +1,7 @@
 FROM node:14.17.1
 
 WORKDIR /front
-COPY ./front /
+COPY ./front /front
 COPY .env ../
 COPY .env.local ../
 
