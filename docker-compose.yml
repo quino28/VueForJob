@@ -30,6 +30,8 @@ services:
     command: bash -c "yarn dev && /bin/bash"
     image: vue
     tty: true
+    env_file:
+      - ./.env.local
     ports:
       - 3000:3000
     links:
