@@ -2,7 +2,6 @@
   <div style="padding: 40px 20px 20px">
     <h1>Are you members?</h1>
   </div>
-  {{ this.text }}
   <div class="container" style="padding: 20px 20px">
     <div class="mb-3 row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
@@ -33,17 +32,16 @@ export default {
         email: '',
         password: '',
       },
-      text: '',
+      member: '',
     }
   },
   methods: {
-    /* temporary */
     login() {
       this.$axios.post('/api/login', {
         form: this.form,
       })
       .then(res => {
-        this.text = res.data
+        this.member = res.data
       }).catch(err => {
         console.error(err)
       })

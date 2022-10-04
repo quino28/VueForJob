@@ -8,8 +8,6 @@ class Api::LoginController < ApplicationController
       }
     end
 
-    render :json => {
-      'data': data
-    }
+    render :json => data
   end
 end
