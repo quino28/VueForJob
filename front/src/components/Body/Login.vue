@@ -2,6 +2,9 @@
   <div style="padding: 40px 20px 20px">
     <h1>Are you members?</h1>
   </div>
+  <div>
+    <h1>{{ this.error.message }}</h1>
+  </div>
   <div class="container" style="padding: 20px 20px">
     <div class="mb-3 row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
@@ -28,6 +31,9 @@
 export default {
   data() {
     return {
+      error {
+        message: '',
+      },
       form: {
         email: '',
         password: '',
@@ -41,7 +47,11 @@ export default {
         form: this.form,
       })
       .then(res => {
-        this.member = res.data
+        if (res) {
+          this.member = res.data
+        } else {
+          this.error.message = 'Something is wrong.'
+        }
       }).catch(err => {
         console.error(err)
       })
