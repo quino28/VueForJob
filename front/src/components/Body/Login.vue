@@ -38,7 +38,6 @@ export default {
         email: '',
         password: '',
       },
-      member: '',
     }
   },
   methods: {
@@ -47,8 +46,8 @@ export default {
         form: this.form,
       })
       .then(res => {
-        if (res) {
-          this.member = res.data
+        if (res && res.data) {
+          this.$emit('setMember', res.data.member)
         } else {
           this.error.message = 'Something is wrong.'
         }
