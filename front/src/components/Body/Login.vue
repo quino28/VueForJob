@@ -47,7 +47,7 @@ export default {
       })
       .then(res => {
         if (res && res.data) {
-          this.$emit('setMember', res.data.member)
+          this.$store.dispatch('setMember', res.data.member)
         } else {
           this.error.message = 'Something is wrong.'
         }

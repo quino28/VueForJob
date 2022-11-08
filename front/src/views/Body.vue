@@ -1,7 +1,6 @@
 <template>
   <component
   :is="currentComponent"
-  @setMember="setMember"
   />
 </template>
 
@@ -17,15 +16,5 @@ export default {
   props: [
     "currentComponent",
   ],
-  data() {
-    return {
-      member: '',
-    }
-  },
-  methods: {
-    setMember(member) {
-      this.member = member
-    },
-  }
 }
 </script>
