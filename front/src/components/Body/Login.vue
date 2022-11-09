@@ -47,7 +47,8 @@ export default {
       })
       .then(res => {
         if (res && res.data) {
-          this.$store.dispatch('setMember', res.data.member)
+          this.$store.commit('setMember', res.data.member)
+          /* go to page for member */
         } else {
           this.error.message = 'Something is wrong.'
         }

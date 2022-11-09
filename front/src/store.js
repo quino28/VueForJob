@@ -2,15 +2,14 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    member : {},
+    member : null,
   },
-  actions: {
+  mutations: {
     setMember(state, member) {
-      console.log(member)
       state.member = member
     },
     removeMember(state) {
-      state.member = {}
+      state.member = null
     },
   },
 })

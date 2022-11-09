@@ -6,7 +6,8 @@
       <li>Fun Club</li>
       <li @click="changeComponent('DogApi')">Dog API</li>
     </ul>
-    <b-button variant="outline-light" @click="changeComponent('login')">Login</b-button>
+    <b-button variant="outline-light" @click="changeComponent('login')" v-if="!$store.state.member">Login</b-button>
+    <b-button variant="outline-light" @click="logout" v-else>Logout</b-button>
   </div>
 </template>
 
@@ -15,7 +16,11 @@ export default {
   methods: {
     changeComponent(component) {
       this.$emit('changeComponent', component)
-    }
+    },
+    logout() {
+      this.$store.commit('removeMember')
+      /* go to home */
+    },
   }
 }
 </script>
