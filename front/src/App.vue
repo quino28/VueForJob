@@ -1,13 +1,19 @@
 <template>
+  <div class="logo">
+    <img src="/logo.png" alt="Quino's demo">
+  </div>
   <div class="header">
     <ul>
       <li>News</li>
       <li>Profile</li>
-      <li>Fun Club</li>
+      <li>Schedule</li>
+      <li>Shop</li>
+      <li>Ticket</li>
       <li @click="changeComponent('DogApi')">Dog API</li>
+      <li v-if="$store.state.member">Ticket</li>
+      <b-button variant="outline-light" @click="changeComponent('login')" v-if="!$store.state.member">Login</b-button>
+      <b-button variant="outline-light" @click="logout" v-else>Logout</b-button>
     </ul>
-    <b-button variant="outline-light" @click="changeComponent('login')" v-if="!$store.state.member">Login</b-button>
-    <b-button variant="outline-light" @click="logout" v-else>Logout</b-button>
   </div>
   <Body
     :currentComponent="this.currentComponent"
@@ -53,21 +59,29 @@ export default {
   color: #2c3e50;
 }
 
+.logo {
+  background-color: #38b48b;
+  img {
+    width: 8em;
+    cursor: pointer;
+  }
+}
+
 .header {
   background-color: #38b48b;
   color: #fef4f4;
-  padding: 20px;
-  display: flex;
+  padding: 0px 10px 20px;
+  display: block;
   align-items: center;
   ul {
     li {
-      display: inline;
+      display: inline-block;
       margin: 10px;
       cursor: pointer;
     }
   }
   button {
-    margin-left: auto;
+    margin-left: 50px;
   }
 }
 
