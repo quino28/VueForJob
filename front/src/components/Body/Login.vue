@@ -25,6 +25,10 @@
       </div>
     </div>
   </div>
+  <div style="padding: 0px 20px 20px">
+    <h1>If you are still not members and want to be.</h1>
+    <p><a href="#">Register</a></p>
+  </div>
 </template>
 
 <script>
