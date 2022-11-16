@@ -1,6 +1,8 @@
 <template>
   <div class="logo">
-    <img src="/logo.png" alt="Quino's demo">
+    <router-link to="/">
+      <img src="/logo.png" alt="Quino's demo">
+    </router-link>
   </div>
   <div class="header">
     <ul>
@@ -9,15 +11,13 @@
       <li>Schedule</li>
       <li>Shop</li>
       <li>Ticket</li>
-      <li @click="changeComponent('DogApi')">Dog API</li>
+      <li><router-link to="/dogapi">Dog API</router-link></li>
       <li v-if="$store.state.member">Ticket</li>
-      <b-button variant="outline-light" @click="changeComponent('login')" v-if="!$store.state.member">Login</b-button>
+      <b-button variant="outline-light" v-if="!$store.state.member"><router-link to="/login">Login</router-link></b-button>
       <b-button variant="outline-light" @click="logout" v-else>Logout</b-button>
     </ul>
   </div>
-  <Body
-    :currentComponent="this.currentComponent"
-  />
+  <router-view />
   <div class="footer">
     <p>made by quino</p>
     <p>
