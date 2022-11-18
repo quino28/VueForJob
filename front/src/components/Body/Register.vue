@@ -1,11 +1,17 @@
 <template>
   <div style="padding: 40px 20px 20px">
-    <h1>Are you members?</h1>
+    <h1>Please type your infomations.</h1>
   </div>
   <div>
     <h1>{{ this.error.message }}</h1>
   </div>
   <div class="container" style="padding: 20px 20px">
+    <div class="mb-3 row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="name" class="form-control" id="name" v-model="this.form.name" placeholder="Name">
+      </div>
+    </div>
     <div class="mb-3 row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
@@ -20,14 +26,11 @@
     </div>
     <div class="mb-3 row">
       <label for="password" class="col-sm-2 col-form-label"></label>
-      <div class="col-sm-10" style="text-align: left">
-        <button class="btn btn-primary" @click="login">Login</button>
+      <div class="col-sm-10 test" style="text-align: left">
+        <button class="btn btn-secondary"><router-link to="/login">Back</router-link></button>
+        <button class="btn btn-primary" @click="register">Go</button>
       </div>
     </div>
-  </div>
-  <div style="padding: 0px 20px 20px">
-    <h1>If you are still not members and want to be.</h1>
-    <p><router-link to="/register">Register</router-link></p>
   </div>
 </template>
 
@@ -39,20 +42,20 @@ export default {
         message: '',
       },
       form: {
+        name: '',
         email: '',
         password: '',
       },
     }
   },
   methods: {
-    login() {
-      this.$axios.post('/api/login', {
+    register() {
+      this.$axios.post('/api/register', {
         form: this.form,
       })
       .then(res => {
         if (res && res.data) {
-          this.$store.commit('setMember', res.data.member)
-          /* go to page for member */
+          // Actions for succeess
         } else {
           this.error.message = 'Something is wrong.'
         }
@@ -63,3 +66,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.mb-3, .row {
+  button {
+    margin: 0.25rem 0.125rem;
+  }
+}
+</style>
