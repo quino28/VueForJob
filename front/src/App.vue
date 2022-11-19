@@ -13,7 +13,7 @@
       <li>Ticket</li>
       <li><router-link to="/dogapi">Dog API</router-link></li>
       <li v-if="$store.state.member">Ticket</li>
-      <b-button variant="outline-light" v-if="!$store.state.member"><router-link to="/login">Login</router-link></b-button>
+      <b-button variant="outline-light" v-if="!$store.state.member"><router-link to="/sign_in">Sign In</router-link></b-button>
       <b-button variant="outline-light" @click="logout" v-else>Logout</b-button>
     </ul>
   </div>
@@ -27,12 +27,7 @@
 </template>
 
 <script>
-import Body from './views/Body.vue'
-
 export default {
-  components: {
-    Body,
-  },
   data() {
     return {
       currentComponent: 'home',

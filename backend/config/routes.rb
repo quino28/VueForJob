@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # Api routes
   namespace :api do
-    post '/login', to: 'login#login'
+    post '/sign_in', to: 'sign_in#sign_in'
   end
 
   # Not found pages

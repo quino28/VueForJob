@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     login() {
-      this.$axios.post('/api/login', {
+      this.$axios.post('/api/sign_in', {
         form: this.form,
       })
       .then(res => {

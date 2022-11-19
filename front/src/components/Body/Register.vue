@@ -27,7 +27,7 @@
     <div class="mb-3 row">
       <label for="password" class="col-sm-2 col-form-label"></label>
       <div class="col-sm-10 test" style="text-align: left">
-        <button class="btn btn-secondary"><router-link to="/login">Back</router-link></button>
+        <button class="btn btn-secondary"><router-link to="/sign_in">Back</router-link></button>
         <button class="btn btn-primary" @click="register">Go</button>
       </div>
     </div>

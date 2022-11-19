@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DogApi from "./components/Body/DogAPI.vue"
-import Login from "./components/Body/Login.vue"
+import SignIn from "./components/Body/SignIn.vue"
 import Register from "./components/Body/Register.vue"
 
 const routes = [
@@ -14,9 +14,9 @@ const routes = [
     component: DogApi,
   },
   {
-    path: '/login',
-    name: 'login',
-    component: Login,
+    path: '/sign_in',
+    name: 'signin',
+    component: SignIn,
   },
   {
     path: '/register',
