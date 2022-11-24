@@ -3,7 +3,7 @@
     <h1>Please type your infomations.</h1>
   </div>
   <div>
-    <h1>{{ this.error.message }}</h1>
+    <h1 class="error">{{ this.error.message }}</h1>
   </div>
   <div class="container" style="padding: 20px 20px">
     <div class="mb-3 row">
@@ -57,7 +57,7 @@
       <label for="password" class="col-sm-2 col-form-label"></label>
       <div class="col-sm-10 test" style="text-align: left">
         <button class="btn btn-secondary"><router-link to="/sign_in">Back</router-link></button>
-        <button class="btn btn-primary" @click="register">Go</button>
+        <button class="btn btn-primary" @click="signUp">Go</button>
       </div>
     </div>
   </div>
@@ -82,8 +82,8 @@ export default {
     }
   },
   methods: {
-    register() {
-      this.$axios.post('/api/register', {
+    signUp() {
+      this.$axios.post('/api/sign_up', {
         form: this.form,
       })
       .then(res => {
@@ -114,5 +114,8 @@ export default {
       vertical-align: inherit;
     }
   }
+}
+.error {
+  color: #DD4C70;
 }
 </style>

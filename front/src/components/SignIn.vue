@@ -3,7 +3,7 @@
     <h1>Are you members?</h1>
   </div>
   <div>
-    <h1>{{ this.error.message }}</h1>
+    <h1 class="error">{{ this.error.message }}</h1>
   </div>
   <div class="container" style="padding: 20px 20px">
     <div class="mb-3 row">
@@ -27,7 +27,7 @@
   </div>
   <div style="padding: 0px 20px 20px">
     <h1>If you are still not members and want to be.</h1>
-    <p><router-link to="/register">Register</router-link></p>
+    <p><router-link to="/sign_up">Sign Up</router-link></p>
   </div>
 </template>
 
@@ -63,3 +63,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.error {
+  color: #DD4C70;
+}
+</style>
