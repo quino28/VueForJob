@@ -8,17 +8,17 @@ const routes = [
   {
     path: '/dogapi',
     name: 'dogapi',
-    component: () => import('./components/DogApi.vue'),
+    component: () => import('./views/DogApi.vue'),
   },
   {
     path: '/sign_in',
     name: 'signin',
-    component: () => import('./components/SignIn.vue'),
+    component: () => import('./views/SignIn.vue'),
   },
   {
     path: '/sign_up',
     name: 'sign_up',
-    component: () => import('./components/SignUp.vue'),
+    component: () => import('./views/SignUp.vue'),
   },
 ]
 
