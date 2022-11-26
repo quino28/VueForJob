@@ -50,7 +50,7 @@
     <div class="mb-3 row">
       <label for="password_confirm" class="col-sm-2 col-form-label">Password confirm</label>
       <div class="col-sm-10">
-        <input type="password_confirm" class="form-control" id="password_confirm" v-model="this.form.password_confirm" placeholder="Password again">
+        <input type="password" class="form-control" id="password_confirm" v-model="this.form.password_confirm" placeholder="Password again">
       </div>
     </div>
     <div class="mb-3 row">
@@ -87,7 +87,9 @@ export default {
         form: this.form,
       })
       .then(res => {
+          console.log(res)
         if (res && res.data) {
+          console.log(res.data)
           // Actions for succeess
         } else {
           this.error.message = 'Something is wrong.'
