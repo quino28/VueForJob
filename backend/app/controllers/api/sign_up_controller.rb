@@ -1,12 +1,23 @@
 class Api::SignUpController < ApplicationController
   def sign_up
     data = nil
-    # member = Members.find_by(email: params[:form][:email])
-    # if member && member.authenticate(params[:form][:password])
-      # data = {
-        # member: member
-      # }
-    # end
+
+    if params[:form][:name] && params[:form][:email] && params[:form][:password] && params[:form][:password_confirm]
+      return
+    end
+
+    if params[:form][:password] === params[:form][:password_confirm]
+      return
+    end
+
+    data = Members.create!(
+      name: params[:form][:name],
+      gender: params[:form][:gender],
+      address: params[:form][:address],
+      email: params[:form][:email],
+      birthday: params[:form][:birthday],
+      password: params[:form][:password],
+    )
 
     render :json => data
   end

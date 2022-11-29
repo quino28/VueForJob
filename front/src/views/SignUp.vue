@@ -42,6 +42,12 @@
       </div>
     </div>
     <div class="mb-3 row">
+      <label for="birthday" class="col-sm-2 col-form-label">Birthday</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="birthday" v-model="this.form.birthday">
+      </div>
+    </div>
+    <div class="mb-3 row">
       <label for="password" class="col-sm-2 col-form-label">Password</label>
       <div class="col-sm-10">
         <input type="password" class="form-control" id="password" v-model="this.form.password" placeholder="Password">
@@ -87,9 +93,7 @@ export default {
         form: this.form,
       })
       .then(res => {
-          console.log(res)
         if (res && res.data) {
-          console.log(res.data)
           // Actions for succeess
         } else {
           this.error.message = 'Something is wrong.'
