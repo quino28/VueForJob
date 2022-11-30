@@ -5,15 +5,15 @@
   <div>
     <h1 class="error">{{ this.error.message }}</h1>
   </div>
-  <div class="container" style="padding: 20px 20px">
+  <div class="container">
     <div class="mb-3 row">
-      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <label for="name" class="col-sm-2 col-form-label">Name<span class="necessary">*</span></label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="name" v-model="this.form.name" placeholder="Name">
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+      <label for="gender" class="col-sm-2 col-form-label">Gender<span class="necessary">*</span></label>
       <div class="col-sm-10">
         <div class="form-check form-check-inline">
           <input type="radio" class="form-check-input" id="gender" v-model="this.form.gender" value="0">
@@ -30,13 +30,13 @@
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="address" class="col-sm-2 col-form-label">Address</label>
+      <label for="address" class="col-sm-2 col-form-label">Address<span class="necessary">*</span></label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="address" v-model="this.form.address" placeholder="Address">
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <label for="email" class="col-sm-2 col-form-label">Email<span class="necessary">*</span></label>
       <div class="col-sm-10">
         <input type="email" class="form-control" id="email" v-model="this.form.email" placeholder="Email">
       </div>
@@ -48,13 +48,13 @@
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="password" class="col-sm-2 col-form-label">Password</label>
+      <label for="password" class="col-sm-2 col-form-label">Password<span class="necessary">*</span></label>
       <div class="col-sm-10">
         <input type="password" class="form-control" id="password" v-model="this.form.password" placeholder="Password">
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="password_confirm" class="col-sm-2 col-form-label">Password confirm</label>
+      <label for="password_confirm" class="col-sm-2 col-form-label">Password confirm<span class="necessary">*</span></label>
       <div class="col-sm-10">
         <input type="password" class="form-control" id="password_confirm" v-model="this.form.password_confirm" placeholder="Password again">
       </div>
@@ -107,17 +107,23 @@ export default {
 </script>
 
 <style lang="scss">
-.mb-3, .row {
-  button {
-    margin: 0.25rem 0.125rem;
+.container {
+  padding: 20px 20px;
+  .necessary {
+    color: #DD4C70;
   }
-  .col-sm-10 {
-    text-align: left;
-  }
-  .form-check-inline {
-    vertical-align: sub;
-    label {
-      vertical-align: inherit;
+  .mb-3, .row {
+    button {
+      margin: 0.25rem 0.125rem;
+    }
+    .col-sm-10 {
+      text-align: left;
+    }
+    .form-check-inline {
+      vertical-align: sub;
+      label {
+        vertical-align: inherit;
+      }
     }
   }
 }
