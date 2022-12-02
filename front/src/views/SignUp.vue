@@ -2,8 +2,9 @@
   <div style="padding: 40px 20px 20px">
     <h1>Please type your infomations.</h1>
   </div>
-  <div>
-    <h1 class="error">{{ this.error.message }}</h1>
+  {{ this.validParams }}
+  <div v-for="(message, index) in this.messages.error">
+    <h1 class="error">{{ message }}</h1>
   </div>
   <div class="container">
     <div class="mb-3 row">
@@ -73,8 +74,8 @@
 export default {
   data() {
     return {
-      error: {
-        message: '',
+      messages: {
+        error: [],
       },
       form: {
         name: '',
@@ -96,13 +97,23 @@ export default {
         if (res && res.data) {
           // Actions for succeess
         } else {
-          this.error.message = 'Something is wrong.'
+          this.messages.error.push('Something is wrong.')
         }
       }).catch(err => {
         console.error(err)
       })
-    }
-  }
+    },
+    computed: {
+      validParams () {
+        const regex = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,100}$/
+        if (!regex.test(this.form.password)) {
+          this.messages.error.push('Password must be between 8 and 100 alphanumeric characters')
+          return false
+        }
+        return true
+      },
+    },
+  },
 }
 </script>
 

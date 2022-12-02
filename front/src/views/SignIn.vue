@@ -52,7 +52,7 @@ export default {
       .then(res => {
         if (res && res.data) {
           this.$store.commit('setMember', res.data.member)
-          /* go to page for member */
+          /* TODO: go to page for member */
           this.$router.push('/')
         } else {
           this.error.message = 'Something is wrong.'
