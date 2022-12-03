@@ -2,8 +2,7 @@
   <div style="padding: 40px 20px 20px">
     <h1>Please type your infomations.</h1>
   </div>
-  {{ this.validParams }}
-  <div v-for="(message, index) in this.messages.error">
+  <div v-for="message in this.messages.error">
     <h1 class="error">{{ message }}</h1>
   </div>
   <div class="container">
@@ -90,6 +89,7 @@ export default {
   },
   methods: {
     signUp() {
+      unless (this.checkParams) return
       this.$axios.post('/api/sign_up', {
         form: this.form,
       })
@@ -103,15 +103,17 @@ export default {
         console.error(err)
       })
     },
-    computed: {
-      validParams () {
-        const regex = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,100}$/
-        if (!regex.test(this.form.password)) {
-          this.messages.error.push('Password must be between 8 and 100 alphanumeric characters')
-          return false
-        }
-        return true
-      },
+    checkParams() {
+      this.messages.error = []
+      const regex = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,100}$/
+      if (regex.test(this.form.password)) {
+        console.log('match')
+      }
+      if (!this.form.password || !regex.test(this.form.password)) {
+        this.messages.error.push('Password must contain at least one uppercase letter, one lowercase letter and a number. And must be 8 or more characters.')
+        return false
+      }
+      return true
     },
   },
 }
