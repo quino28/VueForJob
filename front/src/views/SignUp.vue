@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     signUp() {
-      unless (this.checkParams) return
+      if (!this.checkParams) return
       this.$axios.post('/api/sign_up', {
         form: this.form,
       })
