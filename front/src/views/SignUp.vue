@@ -89,31 +89,31 @@ export default {
   },
   methods: {
     signUp() {
-      if (!this.checkParams) return
+      this.messages.error = []
+      if (!this.checkParams()) return
+
       this.$axios.post('/api/sign_up', {
         form: this.form,
       })
       .then(res => {
         if (res && res.data) {
           // Actions for succeess
-        } else {
-          this.messages.error.push('Something is wrong.')
         }
       }).catch(err => {
         console.error(err)
+        this.messages.error.push('Something is wrong.')
       })
     },
     checkParams() {
-      this.messages.error = []
       const regex = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,100}$/
-      if (regex.test(this.form.password)) {
-        console.log('match')
-      }
       if (!this.form.password || !regex.test(this.form.password)) {
         this.messages.error.push('Password must contain at least one uppercase letter, one lowercase letter and a number. And must be 8 or more characters.')
-        return false
       }
-      return true
+      if (this.messages.error.length) {
+        return false
+      } else {
+        return true
+      }
     },
   },
 }
