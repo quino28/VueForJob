@@ -105,6 +105,11 @@ export default {
       })
     },
     checkParams() {
+      Object.keys(this.form).forEach(key => {
+        if (key !== 'birthday' && this.form[key] === '') {
+          this.messages.error.push(`${key} is required.`)
+        }
+      })
       const regex = /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,100}$/
       if (!this.form.password || !regex.test(this.form.password)) {
         this.messages.error.push('Password must contain at least one uppercase letter, one lowercase letter and a number. And must be 8 or more characters.')
