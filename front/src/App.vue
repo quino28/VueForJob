@@ -13,8 +13,13 @@
       <li>Ticket</li>
       <li><router-link to="/dogapi">Dog API</router-link></li>
       <li v-if="$store.state.member">Ticket</li>
-      <b-button variant="outline-light" v-if="!$store.state.member"><router-link to="/sign_in">Sign In</router-link></b-button>
-      <b-button variant="outline-light" @click="logout" v-else>Logout</b-button>
+      <div v-if="!$store.state.member">
+        <b-button variant="outline-light"><router-link to="/sign_in">Sign In</router-link></b-button>
+      </div>
+      <div v-else>
+        <font-awesome-icon icon="fa-solid fa-user" />
+        <b-button variant="outline-light" @click="logout">Logout</b-button>
+      </div>
     </ul>
   </div>
   <router-view />
@@ -75,8 +80,14 @@ export default {
       cursor: pointer;
     }
   }
-  button {
-    margin-left: 50px;
+  div {
+    display: inline-block;
+    svg {
+      margin-left: 30px;
+    }
+    button {
+      margin-left: 30px;
+    }
   }
 }
 
