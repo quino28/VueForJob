@@ -83,6 +83,7 @@ export default {
   div {
     display: inline-block;
     svg {
+      cursor: pointer;
       margin-left: 30px;
     }
     button {
