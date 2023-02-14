@@ -19,6 +19,7 @@
     "bootstrap-vue-3": "^0.1.13",
     "sass": "^1.51.0",
     "vue": "^3.2.33",
+    "vue-cookies": "^1.8.2",
     "vue-router": "4",
     "vuex": "^4.0.2"
   },
