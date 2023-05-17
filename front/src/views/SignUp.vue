@@ -97,6 +97,7 @@ export default {
       })
       .then(res => {
         if (res && res.data) {
+          this.$store.commit('setMember', res.data.member)
           // Actions for succeess
         }
       }).catch(err => {
