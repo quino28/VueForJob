@@ -13,10 +13,13 @@ services:
     build:
       context: .
       dockerfile: ./backend/Dockerfile
-    command: bash -c "rm -f ./backend/tmp/pids/server.pid && bundle exec rails s -p 4000 -b '0.0.0.0'"
+    command: bash -c "rm -f /backend/tmp/pids/server.pid && bundle exec rails s -p 4000 -b '0.0.0.0'"
     image: rails
     volumes:
       - ./backend:/backend
+      - /backend/.bundle
+      - /backend/log
+      - /backend/tmp
     env_file:
       - ./.env.local
     ports:
@@ -31,7 +34,8 @@ services:
     image: vue
     tty: true
     volumes:
-      - ./front/src:/front/src
+      - ./front:/front
+      - /front/node_modules
     env_file:
       - ./.env.local
     ports:

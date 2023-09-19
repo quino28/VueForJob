@@ -87,6 +87,11 @@ export default {
       },
     }
   },
+  created() {
+    if (this.$store.state.cookies.get('member')) {
+      this.$router.push('/')
+    }
+  },
   methods: {
     signUp() {
       this.messages.error = []
@@ -97,6 +102,7 @@ export default {
       })
       .then(res => {
         if (res && res.data) {
+          this.$store.commit('setMember', res.data.member)
           // Actions for succeess
         }
       }).catch(err => {

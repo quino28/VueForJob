@@ -183,10 +183,10 @@ bootstrap-vue-3@^0.1.13:
   dependencies:
     core-js "3.x.x"
 
-bootstrap@^5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.1.3.tgz#ba081b0c130f810fa70900acbc1c6d3c28fa8f34"
-  integrity sha512-fcQztozJ8jToQWXxVuEyXWW+dSo8AiXWKwiSSrKWsRB/Qt+Ewwza+JWoLKiTuQLaEPhdNAJ7+Dosc9DOIqNy7Q==
+bootstrap@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.3.tgz#54739f4414de121b9785c5da3c87b37ff008322b"
+  integrity sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ==
 
 braces@~3.0.2:
   version "3.0.2"
@@ -549,6 +549,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+tiny-cookie@^2.3.2, tiny-cookie@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/tiny-cookie/-/tiny-cookie-2.4.1.tgz#3adb7c360b607b0c5e2ab29503b4d93b02d04737"
+  integrity sha512-h8ueaMyvUd/9ZfRqCfa1t+0tXqfVFhdK8WpLHz8VXMqsiaj3Sqg64AOCH/xevLQGZk0ZV+/75ouITdkvp3taVA==
+
 to-regex-range@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/to-regex-range/-/to-regex-range-5.0.1.tgz#1648c44aae7c8d988a326018ed72f5b4dd0392e4"
@@ -572,6 +577,13 @@ vite@^2.9.9:
     rollup "^2.59.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+vue-cookie-accept-decline@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/vue-cookie-accept-decline/-/vue-cookie-accept-decline-6.1.0.tgz#2c9d77913727a621a88b66a1904678f23e0a4420"
+  integrity sha512-zFqCat7n6hlTx7cYXVzK+fOxcdQRf05hxN2BsxNEqYULZfQW/v/D3iwzqWrm0BceU7jtluUZ1rX1UW3hcfC2FA==
+  dependencies:
+    tiny-cookie "^2.3.2"
 
 vue-router@4:
   version "4.1.6"

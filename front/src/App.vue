@@ -10,7 +10,6 @@
       <li>Profile</li>
       <li>Schedule</li>
       <li>Shop</li>
-      <li>Ticket</li>
       <li><router-link to="/dogapi">Dog API</router-link></li>
       <li v-if="$store.state.member">Ticket</li>
       <div v-if="!$store.state.member">
@@ -29,13 +28,39 @@
       email: <a href="mailto:quinolactacin@gmail.com">quinolactacin@gmail.com</a>
     </p>
   </div>
+  <div class="cookie-button" v-if="showCookieButton">
+    <b-button variant="btn btn-light rounded-circle" @click="openCookiePopup">
+      <font-awesome-icon icon="fa-sharp fa-light fa-cookie-bite fa-2xl" />
+    </b-button>
+  </div>
+  <vue-cookie-accept-decline
+    :debug="false"
+    :disableDecline="false"
+    :showPostponeButton="false"
+    @clicked-accept="cookieClickedAccept"
+    @clicked-decline="cookieClickedDecline"
+    @removed-cookie="cookieRemovedCookie"
+    @status="cookieStatus"
+    elementId="quinos-demo"
+    position="bottom"
+    ref="cookiePopup"
+    transitionName="slideFromBottom"
+    type="floating"
+  />
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       currentComponent: 'home',
+      showCookieButton: false,
+    }
+  },
+  mounted() {
+    if (this.$store.state.cookies.get('member')) {
+      this.$store.commit('setMember', this.$store.state.cookies.get('member'))
     }
   },
   methods: {
@@ -46,7 +71,28 @@ export default {
       this.$store.commit('removeMember')
       this.currentComponent = 'home'
     },
-  }
+    cookieStatus(status) {
+      if(status) {
+        this.showCookieButton = true
+      }
+      this.$store.commit('checkAcceptedCookie', status)
+    },
+    cookieClickedAccept() {
+      this.showCookieButton = true
+      this.$store.commit('checkAcceptedCookie', 'accept')
+    },
+    cookieClickedDecline() {
+      this.showCookieButton = true
+      this.$store.commit('checkAcceptedCookie', 'decline')
+    },
+    openCookiePopup () {
+      this.$refs.cookiePopup.removeCookie()
+      this.showCookieButton = false
+    },
+    cookieRemovedCookie() {
+      this.$refs.cookiePopup.init()
+    },
+  },
 }
 </script>
 
@@ -100,5 +146,11 @@ export default {
   a {
     color: inherit;
   }
+}
+
+.cookie-button {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
 }
 </style>
