@@ -9,8 +9,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Router from './router.js'
-import Store from './store.js'
-import VueCookies from 'vue-cookies'
+import Store from './store/index.js'
 import VueCookieAcceptDecline from 'vue-cookie-accept-decline'
 import 'vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css'
 
@@ -20,7 +19,6 @@ app.use(Axios)
 app.use(BootstrapVue3)
 app.use(Router)
 app.use(Store)
-app.use(VueCookies, { expires: '1d', path: '/', domain: '', secure: true })
 
 library.add(fas)
 app.component('font-awesome-icon', FontAwesomeIcon)

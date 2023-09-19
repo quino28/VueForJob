@@ -549,7 +549,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-tiny-cookie@^2.3.2:
+tiny-cookie@^2.3.2, tiny-cookie@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/tiny-cookie/-/tiny-cookie-2.4.1.tgz#3adb7c360b607b0c5e2ab29503b4d93b02d04737"
   integrity sha512-h8ueaMyvUd/9ZfRqCfa1t+0tXqfVFhdK8WpLHz8VXMqsiaj3Sqg64AOCH/xevLQGZk0ZV+/75ouITdkvp3taVA==
@@ -584,11 +584,6 @@ vue-cookie-accept-decline@^6.1.0:
   integrity sha512-zFqCat7n6hlTx7cYXVzK+fOxcdQRf05hxN2BsxNEqYULZfQW/v/D3iwzqWrm0BceU7jtluUZ1rX1UW3hcfC2FA==
   dependencies:
     tiny-cookie "^2.3.2"
-
-vue-cookies@^1.8.2:
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/vue-cookies/-/vue-cookies-1.8.2.tgz#39515fa09ebb585a50ac86c0e182a6b9307dc6ad"
-  integrity sha512-+NfoC5l+7ybuVwpnqsf52qndnoYMjEb4EFhX4/j9RzzQP00dNzuJELsWuW2p8omNUzNlSgWGVyyWoOeJr347tw==
 
 vue-router@4:
   version "4.1.6"

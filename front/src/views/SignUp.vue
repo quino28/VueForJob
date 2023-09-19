@@ -87,6 +87,11 @@ export default {
       },
     }
   },
+  created() {
+    if (this.$store.state.cookies.get('member')) {
+      this.$router.push('/')
+    }
+  },
   methods: {
     signUp() {
       this.messages.error = []

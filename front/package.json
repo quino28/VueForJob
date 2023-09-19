@@ -18,9 +18,9 @@
     "bootstrap": "^5.2.3",
     "bootstrap-vue-3": "^0.1.13",
     "sass": "^1.51.0",
+    "tiny-cookie": "^2.4.1",
     "vue": "^3.2.33",
     "vue-cookie-accept-decline": "^6.1.0",
-    "vue-cookies": "^1.8.2",
     "vue-router": "4",
     "vuex": "^4.0.2"
   },

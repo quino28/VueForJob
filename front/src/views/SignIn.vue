@@ -2,10 +2,10 @@
   <div style="padding: 40px 20px 20px">
     <h1>Are you members?</h1>
   </div>
-  <div>
+  <div v-if="this.error.message.length">
     <h1 class="error">{{ this.error.message }}</h1>
   </div>
-  <div class="container" style="padding: 20px 20px">
+  <div class="container" style="padding: 20px">
     <div class="mb-3 row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
@@ -42,6 +42,11 @@ export default {
         email: '',
         password: '',
       },
+    }
+  },
+  created() {
+    if (this.$store.state.cookies.get('member')) {
+      this.$router.push('/')
     }
   },
   methods: {

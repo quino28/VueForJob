@@ -39,7 +39,6 @@
     :showPostponeButton="false"
     @clicked-accept="cookieClickedAccept"
     @clicked-decline="cookieClickedDecline"
-    @clicked-postpone="cookieClickedPostpone"
     @removed-cookie="cookieRemovedCookie"
     @status="cookieStatus"
     elementId="quinos-demo"
@@ -60,8 +59,8 @@ export default {
     }
   },
   mounted() {
-    if (this.$cookies.isKey('member')) {
-      this.$store.commit('setMember', this.$cookies.get('member'))
+    if (this.$store.state.cookies.get('member')) {
+      this.$store.commit('setMember', this.$store.state.cookies.get('member'))
     }
   },
   methods: {
@@ -76,12 +75,15 @@ export default {
       if(status) {
         this.showCookieButton = true
       }
+      this.$store.commit('checkAcceptedCookie', status)
     },
     cookieClickedAccept() {
       this.showCookieButton = true
+      this.$store.commit('checkAcceptedCookie', 'accept')
     },
     cookieClickedDecline() {
       this.showCookieButton = true
+      this.$store.commit('checkAcceptedCookie', 'decline')
     },
     openCookiePopup () {
       this.$refs.cookiePopup.removeCookie()
