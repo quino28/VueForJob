@@ -45,7 +45,7 @@ export default {
     }
   },
   created() {
-    if (this.$store.state.cookies.get('member')) {
+    if (this.$store.state.member) {
       this.$router.push('/')
     }
   },

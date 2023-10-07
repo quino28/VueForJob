@@ -1,10 +1,13 @@
 class Api::SignInController < ApplicationController
   def sign_in
-    data = nil
+    data = {}
     member = Members.find_by(email: params[:form][:email])
     if member && member.authenticate(params[:form][:password])
-      data = {
-        member: member
+      data[:member] = {
+        name: member.name,
+        email: member.email,
+        address: member.address,
+        gender: member.gender,
       }
     end
 

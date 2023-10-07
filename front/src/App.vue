@@ -16,7 +16,9 @@
         <b-button variant="outline-light"><router-link to="/sign_in">Sign In</router-link></b-button>
       </div>
       <div v-else>
-        <font-awesome-icon icon="fa-solid fa-user" />
+        <router-link class="user-icon" to="/my_profile">
+          <font-awesome-icon icon="fa-solid fa-user" />
+        </router-link>
         <b-button variant="outline-light" @click="logout">Logout</b-button>
       </div>
     </ul>
@@ -54,22 +56,18 @@
 export default {
   data() {
     return {
-      currentComponent: 'home',
       showCookieButton: false,
     }
   },
   mounted() {
     if (this.$store.state.cookies.get('member')) {
-      this.$store.commit('setMember', this.$store.state.cookies.get('member'))
+      this.$store.commit('setMember', this.$store.state.cookies.get('member', JSON.parse))
     }
   },
   methods: {
-    changeComponent(component) {
-      this.currentComponent = component
-    },
     logout() {
       this.$store.commit('removeMember')
-      this.currentComponent = 'home'
+      this.$router.push('/')
     },
     cookieStatus(status) {
       if(status) {
@@ -128,9 +126,11 @@ export default {
   }
   div {
     display: inline-block;
+    .user-icon {
+      margin-left: 30px;
+    }
     svg {
       cursor: pointer;
-      margin-left: 30px;
     }
     button {
       margin-left: 30px;

@@ -18,7 +18,7 @@ export default createStore({
     setMember(state, member) {
       if (member) {
         state.member = member
-        state.cookies.set('member', member)
+        state.cookies.set('member', member, JSON.stringify)
       }
     },
     removeMember(state) {

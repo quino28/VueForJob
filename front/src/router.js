@@ -11,14 +11,24 @@ const routes = [
     component: () => import('./views/DogApi.vue'),
   },
   {
+    path: '/my_profile',
+    name: 'my_profile',
+    component: () => import('./views/MyProfile.vue'),
+  },
+  {
     path: '/sign_in',
-    name: 'signin',
+    name: 'sign_in',
     component: () => import('./views/SignIn.vue'),
   },
   {
     path: '/sign_up',
     name: 'sign_up',
     component: () => import('./views/SignUp.vue'),
+  },
+  {
+    path: '/:catchAll(.*)*',
+    name: 'not_found',
+    component: () => import('./views/NotFound.vue'),
   },
 ]
 
