@@ -15,22 +15,14 @@
     <div class="mb-3 row">
       <label for="gender" class="col-sm-2 col-form-label">Gender<span class="necessary">*</span></label>
       <div class="col-sm-10">
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" id="gender" v-model="this.form.gender" value="0">
-          <label class="form-check-label" for="male">Male</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" id="gender" v-model="this.form.gender" value="1">
-          <label class="form-check-label" for="female">Female</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" id="gender" v-model="this.form.gender" value="2">
-          <label class="form-check-label" for="others">Others</label>
+        <div class="form-check form-check-inline" v-for="(value, key) in this.constants['GENDER']">
+          <input type="radio" class="form-check-input" id="gender" name="gender" v-model="this.form.gender" :value="key">
+          <label class="form-check-label">{{ value }}</label>
         </div>
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="address" class="col-sm-2 col-form-label">Address<span class="necessary">*</span></label>
+      <label for="address" class="col-sm-2 col-form-label">Address</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="address" v-model="this.form.address" placeholder="Address">
       </div>
@@ -61,7 +53,7 @@
     </div>
     <div class="mb-3 row">
       <label for="password" class="col-sm-2 col-form-label"></label>
-      <div class="col-sm-10 test" style="text-align: left">
+      <div class="col-sm-10" style="text-align: left">
         <button class="btn btn-secondary"><router-link to="/sign_in">Back</router-link></button>
         <button class="btn btn-primary" @click="signUp">Go</button>
       </div>
@@ -70,9 +62,12 @@
 </template>
 
 <script>
+import constants from '../assets/js/constants.js'
+
 export default {
   data() {
     return {
+      constants: constants,
       messages: {
         error: [],
       },
@@ -101,7 +96,7 @@ export default {
         form: this.form,
       })
       .then(res => {
-        if (res && res.data) {
+        if (res && Object.keys(res.data).length) {
           this.$store.commit('setMember', res.data.member)
           // Actions for succeess
         }
@@ -112,7 +107,7 @@ export default {
     },
     checkParams() {
       Object.keys(this.form).forEach(key => {
-        if (key !== 'birthday' && this.form[key] === '') {
+        if ((key !== 'address' || key !== 'birthday') && this.form[key] === '') {
           this.messages.error.push(`${key} is required.`)
         }
       })

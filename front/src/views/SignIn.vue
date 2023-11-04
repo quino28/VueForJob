@@ -55,9 +55,8 @@ export default {
         form: this.form,
       })
       .then(res => {
-        if (res && res.data) {
+        if (res && Object.keys(res.data).length) {
           this.$store.commit('setMember', res.data.member)
-          /* TODO: go to page for member */
           this.$router.push('/')
         } else {
           this.error.message = 'Something is wrong.'

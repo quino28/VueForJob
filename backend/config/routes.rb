@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :api do
     post '/sign_in', to: 'sign_in#sign_in'
     post '/sign_up', to: 'sign_up#sign_up'
+    post '/member/update', to: 'member#update'
   end
 
   # Not found pages

@@ -16,7 +16,6 @@ class Api::SignUpController < ApplicationController
       address: params[:form][:address],
       email: params[:form][:email],
       birthday: params[:form][:birthday],
-      password: params[:form][:password],
     )
 
     render :json => data
